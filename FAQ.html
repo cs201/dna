@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DNA - Overview - Duke CompSci 201</title>
+  <title>DNA - FAQ - Duke CompSci 201</title>
 
   <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
@@ -21,47 +21,28 @@
    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
- </head>
- <body>
-   <div class="section">
 
-     <h1>Restriction Enzyme Cleaving</h1>
-     <hr>
-     <h2>The science behind the DNA Assignment</h2>
-     <p>
-     <hr>
-     Restriction enzymes cut a strand of DNA at a specific location, the <em>binding site</em>, typically separating the DNA strand into two pieces. In the real chemical process a strand can be split into several pieces at multiple binding sites, we’ll simulate this by 
-repeatedly dividing a strand.</p><p>Given a strand of DNA <code>aatccgaattcgtatc</code> and a restriction enzyme like EcoRI <code>gaattc</code>, the restriction enzyme locates each occurrence of its pattern in the DNA strand and divides the strand into two pieces at that point, leaving either blunt or sticky ends as described below. In the simulation there’s no difference between a blunt and sticky end, and we’ll use a single strand of DNA in the simulation rather than the double-helix/double-strand that’s found in the physical/real process.</p>
-<img src="img/theory-1.png"></div>
-<p>Restriction enzymes have two properties or features: the pattern of DNA that marks 
-a  site  at  which  separation  occurs  and  a  number/index  that  indicates  how  many 
-characters/nucleotides of  the pattern attach  to  the left-part of  the split strand. For 
-example, the adjacent diagram shows a strand split by EcoRI. The <em>pattern</em> for EcoRI 
-is  <code>gaattc</code>  and  the  index  of  the  split  is  one  indicating  that  the  first 
-nucleotide/character of the restriction enzyme adheres to the left part of the split. </p><p>
-In some experiments, and in the simulation you’ll run, another strand of DNA will be 
-spliced  into the  separated  strand.  The  strand  spliced  in  matches  the  separated 
-strand  at  each  end  as  shown  in  the  diagram  below  where  the  spliced-in  strand 
-matches with <code>G</code> on the left and <code>AATTC</code> on the right as you view the strands.</p>
-<img src="img/theory-2.png"></body>
-<p>Your code will be a software simulation of this recombinant process: the restriction 
-enzyme  will  cut  a  strand  of  DNA  and  new  DNA  will  be  spliced-in  to create  a 
-recombinant  strand  of  DNA. <em>In  the  simulation  the  code  simply  replaces  every 
-occurrence of the restriction enzyme with new genetic material/DNA — your 
-code models the process with what is essentially string replacement.</em></p>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom scripts -->
+<script src="js/script.js"></script>
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+ </head>
+ <body>                <div id="fixedNavbarDiv"></div>
+
+   <div class="section">
+   <h1>Frequently Asked Questions</h1>
    </div>
-  <ul>
-  <li><href
-  </li>
-  </ul>
 
   <div class="navigation">
   <hr>
   <a href="index.html"> Back </a> | Next
   </div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
  </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DNA - Overview - Duke CompSci 201</title>
+    <title>DNA - Linked List Methods - Duke CompSci 201</title>
 
     <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
@@ -21,10 +21,23 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom scripts -->
+<script src="js/script.js"></script>
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
   </head>
-  <body>
+  <body>                <div id="fixedNavbarDiv"></div>
+
    <div class = "section">
         <h1> Overview of LinkStrand Methods</h1>
+        <hr>
         <p>
         Because LinkStrand implements the IDnaStrand interface, all the methods you are overriding are documented in comments, so you should check there if you are wondering how any methods should work. You can also refer to the working methods in SimpleStrand, although they will differ in implementation because they use a StringBuilder instead of a linked list. Make sure you correctly implement every method specified in the interface. Below are some considerations for you as you begin to code
         </p>
@@ -51,10 +64,10 @@
         <li>Virtually identical means you simply replace SimpleStrand objects with LinkStrand objects and then the code should work Refer to the code in SimpleStrand to help you.)</li>
         <li> The diagram below gives an indication as to why the operation of splicing in a new strand will be O(B) for cutting at B places. The string splicee is the same for all of the Nodes being spliced in. Creating the node is therefore O(1) because the String splicee is already created.</li>
         <img src="img/link-splice-memory.png" alt="Splice" style="width:400px;height:300px"> 
-      </ul>
         <li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, ex. <code>
           if(myFirst.next != null)) {throw new RuntimeException("link strand has more than one node")};</code> </li>
         <li> The implementation of this method should be virtuall identical to the code in SimpleStrand
+      </ul>
 
       <ul>
         Reverse: 
@@ -66,7 +79,7 @@
 
       <ul>
         Size:
-        <li> Once the string is initialized the length of a LinkStrand object should be calculated in O(1) time. Consider how you change the size of a strand in other methods. </li>
+        <li> Once the string is initialized, the length of a LinkStrand object should be calculated in O(1) time. Consider how you change the size of a strand in other methods. </li>
       </ul>
 
   </div>
@@ -79,9 +92,6 @@
     <hr>
     <a href="3-linked-list-overview.html"> Back </a> | <a href="5-benchmark-pt-2.html"> Next </a>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+    
   </body>
 </html>
