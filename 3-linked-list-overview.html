@@ -21,7 +21,45 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>
+    LinkStrand Class Overview
+    
+    <p>
+    <font size="2">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You’ll be creating a class LinkStrand that implements a 
+    Java interface IDnaStrand. The class simulates cutting a strand of DNA with a restriction 
+    enzyme and appending/splicing-in a new strand.
+    </font>
+	</p>
+	
+	<p>
+	<font size="2">
+	<div style="margin-left: 1em;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You must use a linked-list to support the operations — 
+    specifically the class LinkStrand should maintain pointers to a linked list used to 
+    represent a DNA strand. You should maintain a pointer to the first Node of the linked 
+    list and to the last Node of the linked list. 
+    These pointers are maintained as class invariants – the property of pointing to 
+    first/last nodes must hold after any method in the class executes (and thus before any 
+    method in the class executes). A Strand of DNA is initially represented by a linked list 
+    with one Node; the Node stores one string representing the entire strand of DNA. Thus 
+    initially the instance variables myFirst and myLast will point to the same node. If any	 
+    nodes are appended,	the	value of myLast must be	updated	to ensure that it correctly	
+    points to the last node	of the new list.
+    </div>
+    </font>
+    </p>
+    
+    <p>
+	<font size="2">
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You’ll need a nested/inner class to represent a Node of	
+  	the	linked list	for	storing	DNA	information. Here is what that should look like:
+  	<br>
+  	<img src="Node.png" alt="Node" style="width:700px;height:228px">
+    </font>
+    </p>
+    
+    </h1>
 
     <ul>
     <li><href
