@@ -52,6 +52,9 @@
         <li> The diagram below gives an indication as to why the operation of splicing in a new strand will be O(B) for cutting at B places. The string splicee is the same for all of the Nodes being spliced in. Creating the node is therefore O(1) because the String splicee is already created.</li>
         <img src="img/link-splice-memory.png" alt="Splice" style="width:400px;height:300px"> 
       </ul>
+        <li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, ex. <code>
+          if(myFirst.next != null)) {throw new RuntimeException("link strand has more than one node")};</code> </li>
+        <li> The implementation of this method should be virtuall identical to the code in SimpleStrand
 
       <ul>
         Reverse: 
