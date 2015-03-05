@@ -1,0 +1,39 @@
+html {
+	
+}
+
+h1 {
+	text-align: left;
+	margin-left: 10%;
+}
+p {
+	margin-left: 10%;
+}
+li {
+	list-style: none;
+}
+
+#title {
+}
+
+#title h1 {
+	margin: 0 0 0 0 ;
+	font-size: 96px;
+	text-align: center;
+}
+#title h2 {
+font-size: 36px;
+text-align: center;
+}
+
+#section {
+	background-color: white;
+}
+.tableOfContents {
+	margin-left: 10%;
+	text-align: left;
+}
+
+.navigation {
+	text-align: center;
+}
