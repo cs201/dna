@@ -7,7 +7,10 @@ h1 {
 	margin-left: 10%;
 }
 p {
-	margin-left: 10%;
+	margin-left: 5%;
+	font-family: "Times New Roman";
+    font-size: 20px;
+
 }
 li {
 	list-style: none;
@@ -39,5 +42,4 @@ text-align: center;
 }
 
 .main {
-	
 }
