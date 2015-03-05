@@ -7,12 +7,14 @@ h1 {
 	margin-left: 10%;
 }
 p {
-	margin-left: 5%;
-	font-family: "Times New Roman";
-    font-size: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 li {
 	list-style: none;
+}
+img {
+	margin-left: 15%;
 }
 
 #title {
