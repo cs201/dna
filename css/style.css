@@ -8,8 +8,7 @@ h1 {
 }
 p {
 	margin-left: 5%;
-	font-family: "Times New Roman";
-    font-size: 20px;
+    font-size: 15px;
 }
 li {
 	list-style: none;
@@ -32,10 +31,21 @@ text-align: center;
 	background-color: white;
 }
 .section h2 {
-	margin-left: 10%;
+	margin-left: 5%;
 }
 
+.section ul {
+	margin-left: 5%;
+}
 
+.section li {
+	margin-left: 5%;
+	list-style: disc;
+}
+
+.section img {
+	vertical-align: middle;
+}
 
 .tableOfContents {
 	margin-left: 10%;
