@@ -43,17 +43,31 @@
         </ul>
     </div>
 
-    <div id="section">
+    <div class="section">
         <br>
         <h1>DNA - Overview</h1>
         <hr>
-        <p>Welcome to the page for the DNA assignment.</p>
+        <p>Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, 
+        get practice analyzing your code and understanding tradeoffs, while learning to use important concepts like JUnit tests,
+        inheritance, and much more.</p>
+        <p>Before we get started, we need the starting skeleton code. It's is available through Snarf (using <a href="https://www.cs.duke.edu/csed/ambient/"> Ambient</a>), as well as the course webpage.</p>
+        <h2>Introduction to DNA</h2>
+        <p> In this assignment, we will be simulating genetic experiments using code. To understand the theory behind everything we are doing, it is recommended (but not required) to read <a href="theory.html">this</a>.</p>
+
+        <p>We are modeling DNA strands using classes implementing the interface <em>IDNAStrand</em>. You are given a naive implementation called SimpleStrand, which stores the DNA strand as a String. We will implement our more sophisticated version in LinkStrand. We can test the correctness of our implementation using LinkStrand using the JUnit tests. We will also benchmark these implementations using the class DNABenchmark.</p>
+        <p>The first part of our assignment is to benchmark the given code in SimpleStrand.</p>
+        <p>Then, we'll test the benchmarking by changing the amount of memory required.</p>
+        <p>The main part of the project comes next: we'll implement LinkStrand, which is a more sophisticated model of a DNA strand that uses linked lists. We'll test the correctness of our implementation in TestStrand.</p>
+        <p>Finally, we will run more benchmarking experiments again to show that our new version really is more efficient.</p>
+        <h2>Getting help</h2>
+        <p>There are many resources available to you as a student. <a href="http://www.cs.duke.edu/courses/fall13/compsci201/Help/PythonMatlabJava.pdf">Here</a> is a cheatsheet showing differences in code between Java, Python and Matlab.</p>
+        <p>The <a href="(http://docs.oracle.com/javase/7/docs/api/)">Java API documentation</a> is extremely helpful for anything related to the specifics of Java. If you have a specific question about Java, Google it.</p>
+        <p>Finally, the professor and the TAs are all here to help you. You can find us as well as your classmates on Piazza. <em>Please</em> do not post your own code publicly on Piazza, as that is a violation of course policy. (Posting privately is okay, but it's probably more helpful to bring your specific code into office hours).</p>
     </div>
     <div class="navigation">
     <hr>
      Back | <a href="2-benchmark.html"> Next </a>
     </div>
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
