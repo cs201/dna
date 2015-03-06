@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DNA - Duke CompSci 201</title>
+
+    <!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Custom stylesheet -->
+<link rel="stylesheet" href="css/style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  </head>
+
+
+  <body>
+
+  	<div id="printer-friendly">
+      <h1>DNA</h1>
+      <h2>Duke - CompSci 201</h2>
+	</div>
+
+    <div class="section">
+        <br>
+        <h1>DNA - Overview</h1>
+        <hr>
+        <p>Welcome to the page for the DNA assignment. The goal is to help you gain confidence with linked lists, 
+        get practice analyzing your code, and understanding tradeoffs, while learning to use important concepts like JUnit tests,
+        inheritance, and much more.</p>
+        <p>Before we get started, we need the starting skeleton code. It's is available through Snarf (using <a href="https://www.cs.duke.edu/csed/ambient/"> Ambient</a>), as well as the course webpage.</p>
+        <p><a href="printer-friendly.html">Here</a> is a printer friendly version of this assignment.</p>
+        <h2>Introduction to DNA</h2>
+        <p> In this assignment, we will be simulating genetic experiments using code. To understand the theory behind everything we are doing, it is recommended (but not required) to read <a href="theory.html">this</a>.</p>
+
+        <p>We are modeling DNA strands using classes implementing the interface <em>IDNAStrand</em>. You are given a naive implementation called SimpleStrand, which stores the DNA strand as a String. We will implement our more sophisticated version in LinkStrand. We can test the correctness of our implementation using LinkStrand using the JUnit tests. We will also benchmark these implementations using the class DNABenchmark.</p>
+        <p>The first part of our assignment is to benchmark the given code in SimpleStrand.</p>
+        <p>Then, we'll test the benchmarking by changing the amount of memory required.</p>
+        <p>The main part of the project comes next: we'll implement LinkStrand, which is a more sophisticated model of a DNA strand that uses linked lists. We'll test the correctness of our implementation in TestStrand.</p>
+        <p>Finally, we will run more benchmarking experiments again to show that our new version really is more efficient.</p>
+        <h2>Getting help</h2>
+        <p>There are many resources available to you as a student. <a href="http://www.cs.duke.edu/courses/fall13/compsci201/Help/PythonMatlabJava.pdf">Here</a> is a cheatsheet showing differences in code between Java, Python and Matlab.</p>
+        <p>The <a href="http://docs.oracle.com/javase/7/docs/api/">Java API documentation</a> is extremely helpful for anything related to the specifics of Java. If you have a specific question about Java, Google it.</p>
+        <p>Finally, the professor and the TAs are all here to help you. You can find us as well as your classmates on Piazza. <em>Please</em> do not post your own code publicly on Piazza, as that is a violation of course policy. (Posting privately is okay, but it's probably more helpful to bring your specific code into office hours).</p>
+    </div>
+
+    <div class="section">
+        <h1>Benchmarking Part 1</h1>
+        <hr>
+        <p>Let's see how well our SimpleStrand runs.</p>
+        <p>The code in the class DNABenchMark can be used to benchmark the cutAndSplice method. When you run it, you can select a text file that contains a DNA strand. You are given <code>ecolimed.dat</code> (a smaller strand) and <code>ecoli.dat</code> (a larger one).</p>
+        <p>We're going to need larger strands than that in this part. How? You can create DNA strand files of arbitrary length by creating a new text file and copy-pasting the information in your given files. (You could also write a program to randomly generate DNA strands of arbitrary length.)</p>
+        <h2>Part a</h2>
+        <p>The class <code>SimpleStrand</code> has a method <code>cutAndSplice</code>, which we're going to benchmark. Our algorithm is O(N) where N is the size of the recombined strand returned. Your task is to <em>generate data that displays this behavior</em>, <em>describe your process that led to this data</em>, and <em>explain your results</em>. Record your results in your Analysis.</p>
+        <h2>Part b</h2>
+        <p>You'll notice that when the benchmarking program runs, memory is used to create the recombinant DNA. We're going to determine the largest splicee string (string spliced into the DNA strand) that works without generating an Out Of Memory error.</p>
+        <p>We're going to first test this for a Java Virtual Machine configured with a 512M heap-size. (If your machine cannot run this, divide all the memory sizes by 2, and make a note in your README.) To change the size of the JVM heap-size in Eclipse, go to <code>Run > Run Configurations</code> and use <code>-Xmx 512M</code>.</p>
+        <p>Your first task is to write code that finds the largest string fitting into this heapsize and the time it takes to do so. To make it simpler, <em>only use string lengths that are powers of 2</em>. Use the ecoli.dat input file, which has 645 cut points in an original strand of length 4,639,221 with a restriction enzyme "gaattc".</p>
+        <p>Do the same thing with 1024M of heap-size. Can you fit in the next power-of-two string? How long does it take?</p>
+        <p>In your Analysis, describe how you determined the power-of-two string you can use in both memory sizes, what it is, and the amount of time it took.</p>
+    </div>    <div class = "section">
+    <p>
+        You’ll be creating a class LinkStrand that implements a Java interface IDnaStrand. The class simulates cutting a strand of DNA with a restriction enzyme and appending/splicing-in a new strand.
+  </p>
+  
+  <p>
+        You must use a linked-list to support the operations — specifically the class LinkStrand should maintain pointers to a linked list used to represent a DNA strand. You should maintain a pointer to the first Node of the linked list and to the last Node of the linked list. These pointers are maintained as class invariants. A class invariant is a property that must hold true after the constructor is finished and at the entry and exit of all public member functions. In this case the property of pointing to  first/last nodes must hold after any method in the class executes (and thus before any  method in the class executes). A Strand of DNA is initially represented by a linked list   with one Node; the Node stores one string representing the entire strand of DNA. Thus,  initially the instance variables myFirst and myLast will point to the same node. If any nodes are appended,  the value of myLast must be updated to ensure that it correctly points to the last node of the new list.
+    </p>
+    
+    <p>
+        You’ll need a nested/inner class to represent a Node of 
+        the linked list for storing DNA information. Here is what that should look like:
+        <br>
+        <code>
+         Outer class definition.... <br> 
+         public class Node { <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; String info; <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; Node next; <br>
+         <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Node(String s){ <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; info = s; <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; next = null; <br>
+         &nbsp;} <br>
+        } <br>
+        <br>
+        private Node myFirst, myLast; //first and last nodes of list <br>
+        private long mySize; //# nucleotides in DNA <br>
+        ...rest of class
+        </code>
+    </p>
+
+    <p>
+        The diagram below shows the results of cutting an original strand of DNA at three points and then splicing-in the strand “GTGATAATTC” at each of the locations at which the original strand was cut. Since splicing into a linked list is a constant-time, O(1) operation this implementation should be more efficient in time and space when compared to the String implementation.
+        <br>
+        <img src="img/splicediagram.jpg" alt="Node">
+    </p>
+
+    <h2> How to Test Your Code </h2>
+    <p>
+        To test your LinkStrand class a JUnit tester has been provided for you. The tester will test individual methods in your class. If you need a refresher on JUnit refer to Recitation 5 Slides and Code. <br>
+        Note: Passing these tests doesn't gaurantee full credit since the tests are about correctness, not efficieny. <br>Implementing LinkStrand is the bulk of the coding work for this assignment. You’ll need to implement every method and use the JUnit tests to help determine if your methods are correctly implemented. </p>
+    
+</div>
+   <div class = "section">
+        <h1> Overview of LinkStrand Methods</h1>
+        <hr>
+        <p>
+        Because LinkStrand implements the IDnaStrand interface, all the methods you are overriding are documented with comments, so you should check there if you are wondering how any methods should work. You can also refer to the working methods in SimpleStrand, although they will differ in implementation because they use a StringBuilder instead of a linked list. Make sure you correctly implement every method specified in the interface. Below are some considerations for you as you begin to code
+        </p>
+
+      <ul> 
+          Constructor and initializeFrom:
+          <li>Implement both with the same code (either copy the code or re-use the common code in one method)</li>
+          <li>When creating/initializing a new LinkStrand only one node should be created. This node represents the entire string representation of DNA.</li>
+          <li>Be sure to initialize the length of the simulated strand.</li>
+          <li> Note: DNA Benchmark requires LinkStrand to have an empty constructor, ie. <br> <code> 
+            public LinkStrand(){ this(""); }</code></li>
+      </ul>
+
+      <ul> 
+        Append:
+        <li>Implementation should not concatenate strings, but instead create new nodes</li>
+        <li>If you’re appending a LinkStrand you should create new nodes; you should not convert the strand to a string.</li>
+        <li>If you're appending another type of Strand, ie. a SimpleStrand, you should convert the strand to a string and then append it, you can refer to the implementation in Simple Strand. (Hint: the instanceof operator will be helpful)</li>
+      </ul>
+
+      <ul>
+        CutandSplice:
+        <li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, ex. <code>
+          if(myFirst.next != null)) {throw new RuntimeException("link strand has more than one node")}; </code> </li>
+        <li> The implementation of this method should be virtually identical to the code in SimpleStrand except you'll be creating LinkStrand objects and calling LinkStrand.append to create the recombinant strand.</li>
+        <li>Virtually identical means you simply replace SimpleStrand objects with LinkStrand objects and then the code should work. (Refer to the code in SimpleStrand to help you.)</li>
+        <li> The diagram below gives an indication as to why the operation of splicing in a new strand will be O(B) for cutting at B places. The string splicee is the same for all of the Nodes being spliced in. Creating the node is therefore O(1) because the String splicee is already created.</li>
+        <img src="img/link-splice-memory.png" alt="Splice" style="width:400px;height:300px"> 
+        <li> You may assume there is only one node (though it may contain a huge String of DNA). If there is more than one node throw an exception, ex. <code>
+          if(myFirst.next != null)) {throw new RuntimeException("link strand has more than one node")};</code> </li>
+        <li> The implementation of this method should be virtuall identical to the code in SimpleStrand
+
+      </ul>
+
+      <ul>
+        Reverse: 
+        <li> The SimpleStrand class uses the StringBuilder.reverse() method to reverse the simulated strand – note that this method is a mutator - it changes the StringBuider object it’s called on. </li> 
+        <li> In your LinkStrand class you can call .toString(), create a StringBuilder, and use .reverse() to create a single node LinkStrand object. </li>
+        <li> For full credit an N-node list should be reversed with an N-node list. </li>
+        <li> For extra credit you should only reverse each unique string in the list once. This means that if a string/simulated strand of DNA has been spliced into a LinkStrand object the string should only be reversed/represented once. </li>
+      </ul>
+
+      <ul>
+        Size:
+        <li> Once the string is initialized, the length of a LinkStrand object should be calculated in O(1) time. Consider how you change the size of a strand in other methods. </li>
+      </ul>
+
+  </div>
+
+  <div class="section">
+    <h1>Benchmarking Part 2</h1>
+    <hr>
+    <p>We're going to see how our newly created LinkStrand fares in the benchmark.</p><p> Let's run virtual experiments to show that LinkStrand is O(B) where B is the number of breaks. First, change "SimpleStrand" to "LinkStrand" in the main method of the class DNABenchMark. Then, make different runs to demonstrate this O(B) behavior, changing the number of breaks in your file. You can do this by constructing your own genomic data or by reusing <code>ecoli.dat</code>.</p>
+    <p>In your Analysis, describe the process, the results, and the reasoning you used to conclude the code is O(B). Please <em>write down</em> all the data you gathered, including timings, that demonstrate this O(B) behavior; <em>graph</em> the data to strengthen your case, and <em>explain</em> your data by demonstrating you understand the process.</p>
+  </div>
+    <div class="navigation">
+    <hr>
+    <a href="4-linked-list-methods.html"> Back </a> | <a href="6-analysis.html"> Next </a>
+    </div>
+    <div class="section">
+    <h1>Analysis</h1>
+    <hr>
+    <ul>
+    <p>Your analysis should contain:</p>
+    <li>Data, explanation of process, and explanation of results for <code>SimpleStrand.cutAndSplice</code>.</li>
+    <li>Data, explanation of process, and explanation of results for longest string and time for both 512M and 1024M heap-size.</li>
+    <li>Data, explanation of process, and explanation of results for the virtual experiments ran for LinkStrand, including your conclusion and explanation of O(B) time complexity.</li>
+    </ul>
+    </div>
+    <div class = "section">
+      <p> 
+        All of the results and write-up for benchmarking should be placed in an Analysis.pdf file.
+
+        Submit your code, README.txt, and Analysis.pdf using either the Ambient plugin, or  <a href="https://www.cs.duke.edu/csed/websubmit/app/">Ambient web submit</a>. You should submit to the DNA project. Be sure to submit all files, even those you did not alter. 
+
+        Incorrect submissions will incur a penalty.
+      </p>
+      <h1> Rubric </h1>
+      <hr>
+        <ul>
+          Code: 7 points, 1 point extra credit
+          <li> Your code  passing given and instructor  tests + 3 points. </li>
+          <li> Correct  implementation  of  interface methods + 2 points. </li>
+          <li> Efficiency of  written methods + 2 points. </li>
+          <li> Extra credit: (implentation of reverse): +1 point </li>
+        </ul>
+
+        <ul>
+          Analysis: 7 points total 
+          <li> Benchmarking cutAndSplice  with  SimpleStrand  + 2 points.</li>
+          <li> Benchmarking memory  + 2 points. </li>
+          <li> Benchmarking LinkStrand  + 3 points. </li>
+        </ul>
+
+      </div>
+   <div class="section">
+    <h2> FAQ </h2>
+    <hr>
+    <p> Just a few common questions/helpful hints to get you started, we may be updating this as the assignment progresses. </p>
+
+    <ul>
+      <li> Q: Can I have an example of an enzyme and a splicee? </li>
+      <img src="img/faq-example.png" alt="DNA example" style="width:550px;height:250px"> 
+      <li> Q: When implementing my LinkStrand class and then running it through the DnaBenchmark, two of my recomb values returned as negative numbers. Any ideas why that might happen? <br> 
+        A: Sounds like an integer overflow, your two largest recomb strings are probably longer in length than int's max value, and if you try to store a value above the max int value, it will instead overflow to the minimum int value (a large negative number) and continue counting from there. If you want to see the larger numbers, try using a long instead (the same as an int, but has more bits and thus can store larger values). </li>
+      <li>
+        Q: What should cutAndSplice return if the given enzyme cannot be found within the strand? <br>
+        A: An empty string.
+      </li>
+    </ul>
+
+   </div>
+   <div class="section">
+
+     <h1>Restriction Enzyme Cleaving</h1>
+     <hr>
+     <h2>The science behind the DNA Assignment</h2>
+     <p>
+     Restriction enzymes cut a strand of DNA at a specific location, the <em>binding site</em>, typically separating the DNA strand into two pieces. In the real chemical process a strand can be split into several pieces at multiple binding sites, we’ll simulate this by 
+repeatedly dividing a strand.</p><p>Given a strand of DNA <code>aatccgaattcgtatc</code> and a restriction enzyme like EcoRI <code>gaattc</code>, the restriction enzyme locates each occurrence of its pattern in the DNA strand and divides the strand into two pieces at that point, leaving either blunt or sticky ends as described below. In the simulation there’s no difference between a blunt and sticky end, and we’ll use a single strand of DNA in the simulation rather than the double-helix/double-strand that’s found in the physical/real process.</p>
+<img src="img/theory-1.png"></div>
+<p>Restriction enzymes have two properties or features: the pattern of DNA that marks 
+a  site  at  which  separation  occurs  and  a  number/index  that  indicates  how  many 
+characters/nucleotides of  the pattern attach  to  the left-part of  the split strand. For 
+example, the adjacent diagram shows a strand split by EcoRI. The <em>pattern</em> for EcoRI 
+is  <code>gaattc</code>  and  the  index  of  the  split  is  one  indicating  that  the  first 
+nucleotide/character of the restriction enzyme adheres to the left part of the split. </p><p>
+In some experiments, and in the simulation you’ll run, another strand of DNA will be 
+spliced  into the  separated  strand.  The  strand  spliced  in  matches  the  separated 
+strand  at  each  end  as  shown  in  the  diagram  below  where  the  spliced-in  strand 
+matches with <code>G</code> on the left and <code>AATTC</code> on the right as you view the strands.</p>
+<img src="img/theory-2.png"></body>
+<p>Your code will be a software simulation of this recombinant process: the restriction 
+enzyme  will  cut  a  strand  of  DNA  and  new  DNA  will  be  spliced-in  to create  a 
+recombinant  strand  of  DNA. <em>In  the  simulation  the  code  simply  replaces  every 
+occurrence of the restriction enzyme with new genetic material/DNA — your 
+code models the process with what is essentially string replacement.</em></p>
+   </div>
+
+  </body>
+</html>
+
+    <hr>
+     
+    </div>

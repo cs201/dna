@@ -19,9 +19,25 @@ li {
 	list-style: none;
 }
 img {
-	margin-left: 15%;
+	margin-left: 12%;
 }
 
+#printer-friendly {
+	margin:0 0 0 0 ;
+}
+
+#printer-friendly h1 {
+	margin-left:10%;
+	color:#001A57;
+	font-size: 96px;
+	color:#001A57;
+}
+
+#printer-friendly h2 {
+	margin-left: 10%;
+	margin-top: -1%;
+	font-size: 36px;
+}
 #title {
 }
 
@@ -48,13 +64,13 @@ img {
 }
 
 .section ul {
-	margin-left: 15%;
-	margin-right: 15%;
+	margin-left: 12%;
+	margin-right: 12%;
 }
 
 .section li {
-	margin-left: 15%;
-	margin-right: 15%;
+	margin-left: 12%;
+	margin-right: 12%;
 	list-style: disc;
 }
 
