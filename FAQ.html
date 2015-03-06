@@ -38,6 +38,23 @@
 
    <div class="section">
    <h1>Frequently Asked Questions</h1>
+
+ <body>
+   <div class="section">
+    <h2> FAQ </h2>
+    <p> Just a few common questions/helpful hints to get you started, we may be updating this as the assignment progresses. </p>
+
+    <ul>
+      <li> Q: Can I have an example of an enzyme and a splicee? </li>
+      <img src="img/faq-example.png" alt="DNA example" style="width:550px;height:250px"> 
+      <li> Q: When implementing my LinkStrand class and then running it through the DnaBenchmark, two of my recomb values returned as negative numbers. Any ideas why that might happen? <br> 
+        A: Sounds like an integer overflow, your two largest recomb strings are probably longer in length than int's max value, and if you try to store a value above the max int value, it will instead overflow to the minimum int value (a large negative number) and continue counting from there. If you want to see the larger numbers, try using a long instead (the same as an int, but has more bits and thus can store larger values). </li>
+      <li>
+        Q: What should cutAndSplice return if the given enzyme cannot be found within the strand? <br>
+        A: An empty string.
+      </li>
+    </ul>
+
    </div>
 
   <div class="navigation">
